@@ -8,9 +8,9 @@ def generate_thumbnail(topic: str, hook: str = ""):
         prompt = f"Professional viral social media thumbnail, {topic}, bold cinematic style, dark background, bright neon accent colors, 9x16 vertical, dramatic lighting, no text, high quality"
         
         encoded_prompt = quote(prompt)
-        url = f"https://image.pollinations.ai/prompt/{encoded_prompt}?width=576&height=1024&nologo=true"
+        url = f"https://image.pollinations.ai/prompt/{encoded_prompt}?width=512&height=512&nologo=true"
         
-        response = requests.get(url, timeout=30)
+        response = requests.get(url, timeout=45)
         
         if response.status_code == 200:
             image_b64 = base64.b64encode(response.content).decode("utf-8")

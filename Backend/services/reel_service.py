@@ -25,12 +25,12 @@ def generate_broll_scenes(script: dict) -> list:
 
     for i, prompt in enumerate(prompts):
         encoded = quote(prompt)
-        url = f"https://image.pollinations.ai/prompt/{encoded}?width=576&height=1024&nologo=true&seed={i*42}"
+        url = f"https://image.pollinations.ai/prompt/{encoded}?width=512&height=512&nologo=true&seed={i*42}"
         
         # Try up to 3 times
         for attempt in range(3):
             try:
-                res = requests.get(url, timeout=60)
+                res = requests.get(url, timeout=45)
                 if res.status_code == 200:
                     b64 = base64.b64encode(res.content).decode("utf-8")
                     scenes.append({
